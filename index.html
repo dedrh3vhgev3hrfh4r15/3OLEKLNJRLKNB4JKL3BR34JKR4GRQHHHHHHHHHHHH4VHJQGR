@@ -1,77 +1,118 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to Soa's Profile</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Arial', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #7289da, #23272a);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-
-    .container {
-      text-align: center;
-      max-width: 600px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    }
-
-    .container img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid white;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin: 15px 0;
-      color: #99aab5;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin: 10px 0 20px;
-      color: #dcdde1;
-    }
-
-    a {
-      text-decoration: none;
-      color: #7289da;
-      background: #99aab5;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    a:hover {
-      background: #7289da;
-      color: white;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wendigo</title>
+    <meta property="og:title" content="wendigo#4444">
+    <meta property="og:description" content="@raping. on discord.">
+    <meta property="og:image" content="/images/favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/favicon.ico">
 </head>
 <body>
-  <div class="container">
-    <img src="https://cdn.discordapp.com/avatars/1140459208509243463/6dd0e32c96b28d1d8d48bdba35a1e303.webp?size=1024&format=webp" alt="Profile Avatar">
-    <h1>Welcome to Soa's Profile</h1>
-    <p>Hey there! I'm <strong>Soa</strong>, and this is my corner of the web. Let's connect on Discord!</p>
-    <a href="https://discord.com/users/1140459208509243463" target="_blank">View My Profile</a>
-  </div>
+    <div class="container">
+        <img src="assets/sayori.webp" class="swinging-image" alt="Swinging Image" style="opacity: 1;">
+        
+        <span class="fade-button" id="enter-button" style="opacity: 0; cursor: default;">Enter</span>
+        
+        <div class="names-list show" style="display: block;">
+            <ul>
+                <li>
+                    <img src="assets/discord.png" alt="Discord Icon" width="16" height="16"> 
+                    <span class="japanese-name">不和</span>
+                </li>
+                <li>
+                    <img src="assets/instagram.png" alt="Instagram Icon" width="16" height="16"> 
+                    <span class="japanese-name">インスタグラム</span>
+                </li>
+                <li>
+                    <span class="japanese-name">ウェンディゴ</span>
+                </li>
+                <li>
+                    <span class="japanese-name">自分の</span>
+                </li>
+                <li>
+                    <span class="japanese-name">あなた</span>
+                </li>
+                <li>
+                    <span class="japanese-name">インターネットプロトコル</span>
+                </li>
+                <li> 
+                    <!-- Empty list item -->
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- New div for the "hello" text -->
+    <div class="yRt3Ul_4ac5c10f247eb261df8a">
+        <div class="pYwBRG_dbdc0f63fcf9ce25e8c2" style="font-weight:200;font-size:31px;">hello</div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/tabTitles.js"></script>
+    <script src="/js/translate.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Prevent right-click and key presses
+            document.addEventListener("contextmenu", function(event) {
+                event.preventDefault();
+            });
+
+            document.onkeydown = function (event) {
+                if (event.keyCode == 0x7b) {  // F12
+                    return false;
+                }
+                if (event.ctrlKey && event.shiftKey && (event.keyCode == 0x49 || event.keyCode == 0x4a || event.keyCode == 0x55)) {  // Ctrl+Shift+I/J/U
+                    return false;
+                }
+            };
+
+            // Check if window size changes (to prevent resizing)
+            (function () {
+                const checkWindowSize = () => {
+                    if (window.innerHeight - document.documentElement.clientHeight > 0xa0 || window.outerHeight - window.innerHeight > 0xa0) {
+                        alert("No Nigga What are you doing hmm");
+                        window.open("about:blank", "_self").close();
+                    }
+                };
+                setInterval(checkWindowSize, 0x3e8); // Check every second
+            })();
+
+            // Automatically trigger full-screen and audio
+            document.getElementById("enter-button").style.opacity = 0;  // Hide the "Enter" button
+            document.getElementById("enter-button").disabled = true;  // Disable the button
+            document.getElementById("enter-button").style.cursor = "default";
+
+            // Play audio
+            var audio = new Audio("assets/audio.mp3");
+            audio.loop = true;
+            audio.play();
+
+            // Show the names list
+            var namesList = document.querySelector(".names-list");
+            namesList.style.display = 'block';
+            setTimeout(function () {
+                namesList.classList.add("show");
+            }, 100);
+
+            // Display the swinging image
+            var swingingImage = document.querySelector(".swinging-image");
+            swingingImage.style.opacity = 1;
+
+            // Request full-screen mode
+            var element = document.documentElement;
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) { // Firefox
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+            } else if (element.msRequestFullscreen) { // IE/Edge
+                element.msRequestFullscreen();
+            }
+        });
+    </script>
 </body>
 </html>
