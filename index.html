@@ -5,17 +5,17 @@
     <title>Soa UwU</title>
     <meta property="og:title" content="despconton">
     <meta property="og:description" content="@despconton on discord.">
-    <meta property="og:image" content="/images/favicon.jpg">
+    <meta property="og:image" content="/assets/favicon.jpg">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" href="favicon.ico">
 </head>
 <body>
     <div class="container">
-        <img src="assets/sayori.webp" class="swinging-image" alt="Swinging Image" style="opacity: 1;">
+        <img src="assets/sayori.webp" class="swinging-image" alt="Swinging Image">
         
-        <span class="fade-button" id="enter-button" style="opacity: 0; cursor: default;">Enter</span>
+        <span class="fade-button" id="enter-button">>3</span>
         
-        <div class="names-list show" style="display: block;">
+        <div class="names-list">
             <ul>
                 <li>
                     <img src="assets/discord.png" alt="Discord Icon" width="16" height="16"> 
@@ -37,30 +37,23 @@
                 <li>
                     <span class="japanese-name">インターネットプロトコル</span>
                 </li>
-                <li> 
-                    <!-- Empty list item -->
-                </li>
+                <li>
             </ul>
         </div>
     </div>
 
-    <!-- New div for the "hello" text -->
-    <div class="yRt3Ul_4ac5c10f247eb261df8a">
-        <div class="pYwBRG_dbdc0f63fcf9ce25e8c2" style="font-weight:200;font-size:31px;">hello</div>
-    </div>
-
-    <script src="js/script.js"></script>
+    <!-- External JS files -->
+    <script src="js/translate.js"></script>
     <script src="js/tabTitles.js"></script>
-    <script src="/js/translate.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Prevent right-click and key presses
+        document.addEventListener("DOMContentLoaded", function() {
+            // Prevent right-click and certain key combinations (F12, Ctrl+Shift+I/J/U)
             document.addEventListener("contextmenu", function(event) {
                 event.preventDefault();
             });
 
-            document.onkeydown = function (event) {
+            document.onkeydown = function(event) {
                 if (event.keyCode == 0x7b) {  // F12
                     return false;
                 }
@@ -69,49 +62,50 @@
                 }
             };
 
-            // Check if window size changes (to prevent resizing)
-            (function () {
-                const checkWindowSize = () => {
-                    if (window.innerHeight - document.documentElement.clientHeight > 0xa0 || window.outerHeight - window.innerHeight > 0xa0) {
-                        alert("No Nigga What are you doing hmm");
-                        window.open("about:blank", "_self").close();
-                    }
-                };
-                setInterval(checkWindowSize, 0x3e8); // Check every second
-            })();
+            // Handle "Enter" button click
+            const enterButton = document.getElementById("enter-button");
+            enterButton.addEventListener("click", function() {
+                // Add blur effect to the entire body
+                document.body.style.filter = "blur(0.1px)"; // Apply blur effect to body
 
-            // Automatically trigger full-screen and audio
-            document.getElementById("enter-button").style.opacity = 0;  // Hide the "Enter" button
-            document.getElementById("enter-button").disabled = true;  // Disable the button
-            document.getElementById("enter-button").style.cursor = "default";
+                // Hide button, disable it, and play audio
+                enterButton.style.opacity = 0;
+                enterButton.disabled = true;
+                enterButton.style.cursor = "default";
 
-            // Play audio
-            var audio = new Audio("assets/audio.mp3");
-            audio.loop = true;
-            audio.play();
+                const audio = new Audio("assets/audio.mp3");
+                audio.loop = true;
+                audio.play();
 
-            // Show the names list
-            var namesList = document.querySelector(".names-list");
-            namesList.style.display = 'block';
-            setTimeout(function () {
-                namesList.classList.add("show");
-            }, 100);
+                // Show the names list
+                const namesList = document.querySelector(".names-list");
+                namesList.style.display = 'block';
+                setTimeout(function() {
+                    namesList.classList.add("show");
+                }, 100);
 
-            // Display the swinging image
-            var swingingImage = document.querySelector(".swinging-image");
-            swingingImage.style.opacity = 1;
+                // Swinging image visibility
+                const swingingImage = document.querySelector(".swinging-image");
+                swingingImage.style.opacity = 1;
 
-            // Request full-screen mode
-            var element = document.documentElement;
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) { // Firefox
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
-                element.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-            } else if (element.msRequestFullscreen) { // IE/Edge
-                element.msRequestFullscreen();
-            }
+                // Fullscreen functionality
+                const element = document.documentElement;
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) { // Firefox
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) { // IE/Edge
+                    element.msRequestFullscreen();
+                }
+            });
+
+            
+            const redirectText = document.getElementById("redirect-text");
+            redirectText.addEventListener("click", function() {
+                window.location.href = "";  // Replace with the desired URL
+            });
         });
     </script>
 </body>
