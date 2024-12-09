@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soa UwU</title>
-    <meta property="og:title" content="despconton">
+    <meta property="og:title" content="despconton UwU">
     <meta property="og:description" content="@despconton on discord.">
     <meta property="og:image" content="/assets/favicon.jpg">
     <link rel="stylesheet" href="style.css">
@@ -47,13 +47,13 @@
     <script src="js/tabTitles.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Prevent right-click and certain key combinations (F12, Ctrl+Shift+I/J/U)
+        document.addEventListener("DOMContentLoaded", function () {
+            // Prevent right-click and key presses
             document.addEventListener("contextmenu", function(event) {
                 event.preventDefault();
             });
 
-            document.onkeydown = function(event) {
+            document.onkeydown = function (event) {
                 if (event.keyCode == 0x7b) {  // F12
                     return false;
                 }
@@ -62,9 +62,22 @@
                 }
             };
 
+            // Check if window size changes (to prevent resizing)
+            (function () {
+                const checkWindowSize = () => {
+                    if (window.innerHeight - document.documentElement.clientHeight > 0xa0 || window.outerHeight - window.innerHeight > 0xa0) {
+                        alert("No Nigga What are you doing hmm");
+                        window.open("about:blank", "_self").close();
+                    }
+                };
+                setInterval(checkWindowSize, 0x3e8); // Check every second
+            })();
+
+         
+
             // Handle "Enter" button click
             const enterButton = document.getElementById("enter-button");
-            enterButton.addEventListener("click", function() {
+            enterButton.addEventListener("click", function () {
                 // Add blur effect to the entire body
                 document.body.style.filter = "blur(0.1px)"; // Apply blur effect to body
 
@@ -80,7 +93,7 @@
                 // Show the names list
                 const namesList = document.querySelector(".names-list");
                 namesList.style.display = 'block';
-                setTimeout(function() {
+                setTimeout(function () {
                     namesList.classList.add("show");
                 }, 100);
 
@@ -103,7 +116,7 @@
 
             
             const redirectText = document.getElementById("redirect-text");
-            redirectText.addEventListener("click", function() {
+            redirectText.addEventListener("click", function () {
                 window.location.href = "";  // Replace with the desired URL
             });
         });
