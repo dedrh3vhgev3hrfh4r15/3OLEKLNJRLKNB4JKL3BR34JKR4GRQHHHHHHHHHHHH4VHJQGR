@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
         '自分の': "owns",
         'あなた': "you",
         'インターネットプロトコル': "$ip", // Placeholder for IP address
-        'ディスコードからアイピー': "Click for Discord to IP address search"
     };
 
     function fetchIP() {
