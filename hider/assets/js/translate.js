@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const translations = {
-        '不和': "despconton",
+        '不和': "g0ve",
         'インスタグラム': "i dont know",
-        'ウェンディゴ': "Soa",
+        'ウェンディゴ': "Hedir",
         '自分の': "owns",
         'あなた': "you",
         'インターネットプロトコル': "$ip", // Placeholder for IP address
