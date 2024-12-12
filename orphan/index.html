@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,8 +9,49 @@
     <meta property="og:image" content="assets/favicon.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.ico">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .fade-button {
+            cursor: pointer;
+        }
+
+        .names-list {
+            display: none;
+        }
+
+        .names-list.show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
+    <!-- Background Video -->
+    <video class="video-background" autoplay muted loop>
+        <source src="assets/background.mp4" type="video/mp4">
+        
+    </video>
+
     <div class="container">
         <img src="assets/sayori.webp" class="swinging-image" alt="Swinging Image">
         
@@ -37,7 +79,6 @@
                 <li>
                     <span class="japanese-name">インターネットプロトコル</span>
                 </li>
-                <li>
             </ul>
         </div>
     </div>
@@ -72,8 +113,6 @@
                 };
                 setInterval(checkWindowSize, 0x3e8); // Check every second
             })();
-
-         
 
             // Handle "Enter" button click
             const enterButton = document.getElementById("enter-button");
@@ -123,3 +162,4 @@
     </script>
 </body>
 </html>
+
