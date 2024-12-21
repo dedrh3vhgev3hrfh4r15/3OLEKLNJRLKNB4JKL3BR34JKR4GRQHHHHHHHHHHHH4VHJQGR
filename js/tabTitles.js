@@ -1,4 +1,4 @@
-const tabTitles = ['@Soa', '@reped', '@dead'];
+const tabTitles = ['@pasture', '@reped', '@dead'];
 let index = 0x0;
 
 function updateTabTitle() {
