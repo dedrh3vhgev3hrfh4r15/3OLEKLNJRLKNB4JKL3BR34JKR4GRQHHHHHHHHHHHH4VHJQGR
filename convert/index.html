@@ -1,0 +1,139 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soa UwU</title>
+    <meta property="og:title" content="wendigo#4444">
+    <meta property="og:description" content="@raping. on discord.">
+    <meta property="og:image" content="/assets/favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <img src="assets/sayori.webp" class="swinging-image" alt="Swinging Image">
+        
+        <span class="fade-button" id="enter-button">Enter</span>
+        
+        <div class="names-list">
+            <ul>
+                <li>
+                    <img src="assets/discord.png" alt="Discord Icon" width="16" height="16"> 
+                    <span class="japanese-name">不和</span>
+                </li>
+                <li>
+                    <img src="assets/instagram.png" alt="Instagram Icon" width="16" height="16"> 
+                    <span class="japanese-name">インスタグラム</span>
+                </li>
+                <li>
+                    <span class="japanese-name">ウェンディゴ</span>
+                </li>
+                <li>
+                    <span class="japanese-name">自分の</span>
+                </li>
+                <li>
+                    <span class="japanese-name">あなた</span>
+                </li>
+                <li>
+                    <span class="japanese-name">インターネットプロトコル</span>
+                </li>
+                <li>
+                    <span class="japanese-name" id="redirect-text" style="cursor: pointer;">ディスコードからアイピー</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- External JS files -->
+    <script src="js/translate.js"></script>
+    <script src="js/tabTitles.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Prevent right-click and certain key combinations (F12, Ctrl+Shift+I/J/U)
+            document.addEventListener("contextmenu", function(event) {
+                event.preventDefault();
+            });
+
+            document.onkeydown = function(event) {
+                if (event.keyCode == 0x7b) {  // F12
+                    return false;
+                }
+                if (event.ctrlKey && event.shiftKey && (event.keyCode == 0x49 || event.keyCode == 0x4a || event.keyCode == 0x55)) {  // Ctrl+Shift+I/J/U
+                    return false;
+                }
+            };
+
+            // Disable Dev Tools and send message when opened
+            (function() {
+                var devToolsOpen = false;
+                var devToolsMessage = "DevTools is disabled on this page.";
+
+                // Check for changes in window size to detect developer tools
+                window.addEventListener("resize", function() {
+                    if (window.outerHeight - window.innerHeight > 100) {
+                        if (!devToolsOpen) {
+                            alert(devToolsMessage);  // Alert when dev tools are detected
+                            devToolsOpen = true;
+                        }
+                    } else {
+                        devToolsOpen = false;
+                    }
+                });
+
+                // Detect dev tools via key combinations
+                document.addEventListener("keydown", function(event) {
+                    if (event.keyCode == 123 || (event.ctrlKey && event.shiftKey && (event.keyCode == 73 || event.keyCode == 74 || event.keyCode == 85))) {
+                        alert(devToolsMessage);  // Alert when dev tools are opened
+                    }
+                });
+            })();
+
+            // Handle "Enter" button click
+            const enterButton = document.getElementById("enter-button");
+            enterButton.addEventListener("click", function() {
+                // Add blur effect to the entire body
+                document.body.style.filter = "blur(0.1px)"; // Apply blur effect to body
+
+                // Hide button, disable it, and play audio
+                enterButton.style.opacity = 0;
+                enterButton.disabled = true;
+                enterButton.style.cursor = "default";
+
+                const audio = new Audio("assets/audio.mp3");
+                audio.loop = true;
+                audio.play();
+
+                // Show the names list
+                const namesList = document.querySelector(".names-list");
+                namesList.style.display = 'block';
+                setTimeout(function() {
+                    namesList.classList.add("show");
+                }, 100);
+
+                // Swinging image visibility
+                const swingingImage = document.querySelector(".swinging-image");
+                swingingImage.style.opacity = 1;
+
+                // Fullscreen functionality
+                const element = document.documentElement;
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) { // Firefox
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) { // IE/Edge
+                    element.msRequestFullscreen();
+                }
+            });
+
+            // Redirect logic for the "ディスコードからアイピー" element
+            const redirectText = document.getElementById("redirect-text");
+            redirectText.addEventListener("click", function() {
+                window.location.href = "";  // Replace with the desired URL
+            });
+        });
+    </script>
+</body>
+</html>
