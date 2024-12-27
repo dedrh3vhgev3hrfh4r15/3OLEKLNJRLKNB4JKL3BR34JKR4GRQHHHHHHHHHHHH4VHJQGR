@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const translations = {
-        '不和': "networkaddict",
-        'インスタグラム': "i dont know",
+        '不和': "@networkaddict",
+        '絶望': "@despair",
         'ウェンディゴ': "exyth",
         '自分の': "owns",
         'あなた': "you",
