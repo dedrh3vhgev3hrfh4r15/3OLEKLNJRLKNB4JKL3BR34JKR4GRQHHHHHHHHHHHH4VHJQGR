@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const translations = {
-        '不和': "@networkaddict",
+        '不和': "@skidmaxxing",
         '絶望': "@despair",
         'ウェンディゴ': "exyth",
         '自分の': "owns",
