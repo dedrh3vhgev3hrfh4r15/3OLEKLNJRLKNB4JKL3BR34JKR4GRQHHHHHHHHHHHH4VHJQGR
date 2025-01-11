@@ -1,0 +1,125 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr H</title>
+    <meta property="og:title" content="Mr H">
+    <meta property="og:description" content="@z.x23z on discord.">
+    <meta property="og:image" content="assets/favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <img src="assets/sayori.webp" class="swinging-image" alt="Swinging Image">
+        
+        <span class="fade-button" id="enter-button">Blinded</span>
+        
+        <div class="names-list">
+            <ul>
+                <li>
+                    <img src="assets/discord.png" alt="Discord Icon" width="16" height="16"> 
+                    <span class="japanese-name">不和</span>
+                </li>
+                <li>
+                    <img src="assets/instagram.png" alt="Instagram Icon" width="16" height="16"> 
+                    <span class="japanese-name">インスタグラム</span>
+                </li>
+                <li>
+                    <span class="japanese-name">ウェンディゴ</span>
+                </li>
+                <li>
+                    <span class="japanese-name">自分の</span>
+                </li>
+                <li>
+                    <span class="japanese-name">あなた</span>
+                </li>
+                <li>
+                   
+                </li>
+                <li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- External JS files -->
+    <script src="assets/js/tabTitles.js"></script>
+    <script src="assets/js/translate.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Prevent right-click and key presses
+            document.addEventListener("contextmenu", function(event) {
+                event.preventDefault();
+            });
+
+            document.onkeydown = function (event) {
+                if (event.keyCode == 0x7b) {  // F12
+                    return false;
+                }
+                if (event.ctrlKey && event.shiftKey && (event.keyCode == 0x49 || event.keyCode == 0x4a || event.keyCode == 0x55)) {  // Ctrl+Shift+I/J/U
+                    return false;
+                }
+            };
+
+            // Check if window size changes (to prevent resizing)
+            (function () {
+                const checkWindowSize = () => {
+                    if (window.innerHeight - document.documentElement.clientHeight > 0xa0 || window.outerHeight - window.innerHeight > 0xa0) {
+                        alert("No Nigga What are you doing hmm");
+                        window.open("about:blank", "_self").close();
+                    }
+                };
+                setInterval(checkWindowSize, 0x3e8); // Check every second
+            })();
+
+         
+
+            // Handle "Enter" button click
+            const enterButton = document.getElementById("enter-button");
+            enterButton.addEventListener("click", function () {
+                // Add blur effect to the entire body
+                document.body.style.filter = "blur(0.1px)"; // Apply blur effect to body
+
+                // Hide button, disable it, and play audio
+                enterButton.style.opacity = 0;
+                enterButton.disabled = true;
+                enterButton.style.cursor = "default";
+
+                const audio = new Audio("assets/audio.mp3");
+                audio.loop = true;
+                audio.play();
+
+                // Show the names list
+                const namesList = document.querySelector(".names-list");
+                namesList.style.display = 'block';
+                setTimeout(function () {
+                    namesList.classList.add("show");
+                }, 100);
+
+                // Swinging image visibility
+                const swingingImage = document.querySelector(".swinging-image");
+                swingingImage.style.opacity = 1;
+
+                // Fullscreen functionality
+                const element = document.documentElement;
+                if (element.requestFullscreen) {
+                    element.requestFullscreen();
+                } else if (element.mozRequestFullScreen) { // Firefox
+                    element.mozRequestFullScreen();
+                } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                    element.webkitRequestFullscreen();
+                } else if (element.msRequestFullscreen) { // IE/Edge
+                    element.msRequestFullscreen();
+                }
+            });
+
+            // Redirect logic for the "ディスコードからアイピー" element
+            const redirectText = document.getElementById("redirect-text");
+            redirectText.addEventListener("click", function () {
+                window.location.href = "";  // Replace with the desired URL
+            });
+        });
+    </script>
+</body>
+</html>
