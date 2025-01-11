@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta property="og:title" content="@roster">
   <meta property="og:description" content="every despconton">
-  <meta property="og:image" content="assets/favicon.jpg">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#2B2D31">
   <title>@roster</title>
@@ -169,6 +169,7 @@
     <button id="disposeButton">@dispose</button>
     <button id="proxyButton">@proxy</button>
     <button id="hedirButton">@hedir</button>
+    <button id="mrHButton">Mr H</button> <!-- Added Mr H button -->
   </div>
 
   <!-- Avatar Sections -->
@@ -250,6 +251,20 @@
     </div>
   </div>
 
+  <!-- Added Mr H avatar section -->
+  <div class="avatar-container" id="avatarContainer7">
+    <div class="avatar">
+      <img src="assets/mrHpfp.png" alt="Avatar">
+      <div class="decoration"></div>
+    </div>
+    <div class="bio" id="bio7">
+      <br>
+      <br>
+      <br>
+      <p>He raped everyone</p>
+    </div>
+  </div>
+
   <div class="text-container">
     <p>@ <a href="https://discord.gg/bQFMkwja" target="_blank" style="color:rgb(233, 229, 229);">bleed</a>, Anyone who wants to make a bio link</p>
     <p>just message pasture on discord</p>
@@ -299,35 +314,8 @@
     document.getElementById('pastureButton').addEventListener('click', () => showAvatarAndBio('avatarContainer4', 'bio4'));
     document.getElementById('proxyButton').addEventListener('click', () => showAvatarAndBio('avatarContainer5', 'bio5'));
     document.getElementById('hedirButton').addEventListener('click', () => showAvatarAndBio('avatarContainer6', 'bio6'));
+    document.getElementById('mrHButton').addEventListener('click', () => showAvatarAndBio('avatarContainer7', 'bio7')); // Mr H Button Event
   </script>
-<script>
-  (function() {
-    
-    function checkDevTools() {
-      const element = new Image();
-      element.__defineGetter__('id', function() {
-        
-        window.location.href = 'about:blank'; 
-      });
-      console.log(element);
-    }
-
-    
-    setInterval(checkDevTools, 1000);
-
-    
-    document.addEventListener('keydown', (event) => {
-      if (
-        (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
-        (event.ctrlKey && event.keyCode === 85) || 
-        event.keyCode === 123 
-      ) {
-        event.preventDefault();
-        window.location.href = 'about:blank'; 
-      }
-    });
-  })();
-</script>
-
 </body>
 </html>
+
