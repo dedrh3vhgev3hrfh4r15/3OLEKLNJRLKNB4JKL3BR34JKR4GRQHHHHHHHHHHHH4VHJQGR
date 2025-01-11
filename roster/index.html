@@ -303,6 +303,19 @@
       showAvatarAndBio('avatarContainer5', 'bio5');
     });
   </script>
+<script>
+  // Disable right-click
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
 
+  // Disable F12, Ctrl+Shift+I, and other developer tool shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
+      e.preventDefault();
+    }
+  });
+</script>
+  
 </body>
 </html>
