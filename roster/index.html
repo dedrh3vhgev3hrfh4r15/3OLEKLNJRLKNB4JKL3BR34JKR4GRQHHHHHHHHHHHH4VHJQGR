@@ -80,10 +80,11 @@
       transition: background-color 0.3s ease, color 0.3s ease, filter 0.3s ease;
       padding: 8px 16px;
     }
-/* Apply hover effect on buttons */
-.buttons-container button:hover {
+
+    .buttons-container button:hover {
       filter: brightness(0.5);
     }
+
     .text-container {
       position: fixed;
       bottom: 10%;
@@ -152,10 +153,8 @@
 </head>
 <body>
 
-  <!-- Audio Element -->
   <audio id="backgroundAudio" preload="auto" loop>
     <source src="assets/audio.mp3" type="audio/mp3">
-    
   </audio>
 
   <div class="background">
@@ -168,9 +167,10 @@
     <button id="convertButton">@convert</button>
     <button id="disposeButton">@dispose</button>
     <button id="proxyButton">@proxy</button>
+    <button id="hedirButton">@hedir</button>
   </div>
 
-  <!-- Person 1 -->
+  <!-- Avatar Sections -->
   <div class="avatar-container" id="avatarContainer1">
     <div class="avatar">
       <img src="assets/exythpfp.png" alt="Avatar">
@@ -179,11 +179,11 @@
     <div class="bio" id="bio1">
       <br>
       <br>
+      <br>
       <p>blinded</p>
     </div>
   </div>
 
-  <!-- Person 2 -->
   <div class="avatar-container" id="avatarContainer2">
     <div class="avatar">
       <img src="assets/convertpfp.png" alt="Avatar">
@@ -197,7 +197,6 @@
     </div>
   </div>
 
-  <!-- Person 3 -->
   <div class="avatar-container" id="avatarContainer3">
     <div class="avatar">
       <img src="assets/disposepfp.png" alt="Avatar">
@@ -211,7 +210,6 @@
     </div>
   </div>
 
-  <!-- Person 4 (pasture) -->
   <div class="avatar-container" id="avatarContainer4">
     <div class="avatar">
       <img src="assets/pasturepfp.png" alt="Avatar">
@@ -225,13 +223,25 @@
     </div>
   </div>
 
-  <!-- Person 5 (proxy) -->
   <div class="avatar-container" id="avatarContainer5">
     <div class="avatar">
       <img src="assets/proxypfp.png" alt="Avatar">
       <div class="decoration"></div>
     </div>
     <div class="bio" id="bio5">
+      <br>
+      <br>
+      <br>
+      <p>Mentally retarded</p>
+    </div>
+  </div>
+
+  <div class="avatar-container" id="avatarContainer6">
+    <div class="avatar">
+      <img src="assets/hedirpfp.png" alt="Avatar">
+      <div class="decoration"></div>
+    </div>
+    <div class="bio" id="bio6">
       <br>
       <br>
       <br>
@@ -246,10 +256,7 @@
   </div>
 
   <script>
-    // Get the audio element and play the audio on page load
     const audio = document.getElementById('backgroundAudio');
-
-    // Play audio when the page loads
     window.onload = function() {
       audio.play();
     };
@@ -285,40 +292,41 @@
       }, 10);
     }
 
-    document.getElementById('exythButton').addEventListener('click', function() {
-      showAvatarAndBio('avatarContainer1', 'bio1');
-    });
-
-    document.getElementById('convertButton').addEventListener('click', function() {
-      showAvatarAndBio('avatarContainer2', 'bio2');
-    });
-
-    document.getElementById('disposeButton').addEventListener('click', function() {
-      showAvatarAndBio('avatarContainer3', 'bio3');
-    });
-
-    document.getElementById('pastureButton').addEventListener('click', function() {
-      showAvatarAndBio('avatarContainer4', 'bio4');
-    });
-
-    // New proxy button event
-    document.getElementById('proxyButton').addEventListener('click', function() {
-      showAvatarAndBio('avatarContainer5', 'bio5');
-    });
+    document.getElementById('exythButton').addEventListener('click', () => showAvatarAndBio('avatarContainer1', 'bio1'));
+    document.getElementById('convertButton').addEventListener('click', () => showAvatarAndBio('avatarContainer2', 'bio2'));
+    document.getElementById('disposeButton').addEventListener('click', () => showAvatarAndBio('avatarContainer3', 'bio3'));
+    document.getElementById('pastureButton').addEventListener('click', () => showAvatarAndBio('avatarContainer4', 'bio4'));
+    document.getElementById('proxyButton').addEventListener('click', () => showAvatarAndBio('avatarContainer5', 'bio5'));
+    document.getElementById('hedirButton').addEventListener('click', () => showAvatarAndBio('avatarContainer6', 'bio6'));
   </script>
 <script>
-  // Disable right-click
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
-
-  // Disable F12, Ctrl+Shift+I, and other developer tool shortcuts
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') || (e.ctrlKey && e.key === 'U')) {
-      e.preventDefault();
+  (function() {
+    
+    function checkDevTools() {
+      const element = new Image();
+      element.__defineGetter__('id', function() {
+        
+        window.location.href = 'about:blank'; 
+      });
+      console.log(element);
     }
-  });
+
+    
+    setInterval(checkDevTools, 1000);
+
+    
+    document.addEventListener('keydown', (event) => {
+      if (
+        (event.ctrlKey && event.shiftKey && event.keyCode === 73) || 
+        (event.ctrlKey && event.keyCode === 85) || 
+        event.keyCode === 123 
+      ) {
+        event.preventDefault();
+        window.location.href = 'about:blank'; 
+      }
+    });
+  })();
 </script>
-  
+
 </body>
 </html>
