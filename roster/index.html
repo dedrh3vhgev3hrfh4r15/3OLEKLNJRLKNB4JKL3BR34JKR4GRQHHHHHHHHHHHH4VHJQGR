@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:title" content="@roster">
+  <meta property="og:description" content="All people who have a bio link">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2B2D31">
+  <title>@roster</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      background-color: #141414;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .background {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      z-index: 0;
+      user-select: none;
+    }
+
+    .snowflakes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .snowflake {
+      position: absolute;
+      font-size: 20px;
+      color: #050505;
+      opacity: 0.7;
+      animation: snowflakes 10s infinite linear;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+    }
+
+    @keyframes snowflakes {
+      0% { 
+        top: -10%; 
+        opacity: 1; 
+      }
+      100% { 
+        top: 100vh;
+        opacity: 0; 
+      }
+    }
+
+    .buttons-container {
+      position: fixed;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      z-index: 2;
+    }
+
+    .buttons-container button {
+      background-color: #000000;
+      color: #fff5f5;
+      font-size: 14px;
+      font-weight: bold;
+      border: 1px solid #000000;
+      border-radius: 0px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      padding: 8px 16px;
+    }
+
+    .text-container {
+      position: fixed;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      text-align: center;
+      z-index: 3;
+    }
+
+    .text-container p {
+      color: #757575;
+      font-size: 14px;
+    }
+
+    .avatar-container {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 4;
+      width: 400px;
+      height: 400px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: none;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .decoration {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/fake-ascii.png') no-repeat center center;
+      background-size: cover;
+      z-index: 2;
+    }
+
+    .bio {
+      color: #757575;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      text-shadow: 0 0 10px #ebe5e5, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000;
+    }
+
+    .bio.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Audio Element -->
+  <audio id="backgroundAudio" preload="auto" loop>
+    <source src="assets/audio.mp3" type="audio/mp3">
+    
+  </audio>
+
+  <div class="background">
+    <div class="snowflakes" id="snowflakes"></div>
+  </div>
+
+  <div class="buttons-container">
+    <button id="pastureButton">pasture</button>
+    <button id="exythButton">exyth</button>
+    <button id="convertButton">convert</button>
+    <button id="disposeButton">dispose</button>
+    <button id="proxyButton">proxy</button>
+  </div>
+
+  <!-- Person 1 -->
+  <div class="avatar-container" id="avatarContainer1">
+    <div class="avatar">
+      <img src="assets/exythpfp.png" alt="Avatar">
+      <div class="decoration"></div>
+    </div>
+    <div class="bio" id="bio1">
+      <br>
+      <br>
+      <p>『 Blindfolded 』</p>
+    </div>
+  </div>
+
+  <!-- Person 2 -->
+  <div class="avatar-container" id="avatarContainer2">
+    <div class="avatar">
+      <img src="assets/convertpfp.png" alt="Avatar">
+      <div class="decoration"></div>
+    </div>
+    <div class="bio" id="bio2">
+      <br>
+      <br>
+      <br>
+      <p>retarded</p>
+    </div>
+  </div>
+
+  <!-- Person 3 -->
+  <div class="avatar-container" id="avatarContainer3">
+    <div class="avatar">
+      <img src="assets/disposepfp.png" alt="Avatar">
+      <div class="decoration"></div>
+    </div>
+    <div class="bio" id="bio3">
+      <br>
+      <br>
+      <br>
+      <p>I'm the reason why you can't have nice things</p>
+    </div>
+  </div>
+
+  <!-- Person 4 (pasture) -->
+  <div class="avatar-container" id="avatarContainer4">
+    <div class="avatar">
+      <img src="assets/pasturepfp.png" alt="Avatar">
+      <div class="decoration"></div>
+    </div>
+    <div class="bio" id="bio4">
+      <br>
+      <br>
+      <br>
+      <p>suck it up bitch</p>
+    </div>
+  </div>
+
+  <!-- Person 5 (proxy) -->
+  <div class="avatar-container" id="avatarContainer5">
+    <div class="avatar">
+      <img src="assets/proxypfp.png" alt="Avatar">
+      <div class="decoration"></div>
+    </div>
+    <div class="bio" id="bio5">
+      <br>
+      <br>
+      <br>
+      <p>Mentally retarded</p>
+    </div>
+  </div>
+
+  <div class="text-container">
+    <p>@ <a href="https://discord.gg/bQFMkwja" target="_blank" style="color:rgb(233, 229, 229);">bleed</a>, Anyone who wants to make a bio link</p>
+    <p>just message pasture on discord</p>
+    <p>enjoy :)</p>
+  </div>
+
+  <script>
+    // Get the audio element and play the audio on page load
+    const audio = document.getElementById('backgroundAudio');
+
+    // Play audio when the page loads
+    window.onload = function() {
+      audio.play();
+    };
+
+    const snowflakesContainer = document.getElementById('snowflakes');
+    const numSnowflakes = 50;
+
+    for (let i = 0; i < numSnowflakes; i++) {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.textContent = '★';
+      snowflake.style.left = `${Math.random() * 100}vw`;
+      snowflake.style.animationDuration = `${Math.random() * 3 + 7}s`;
+      snowflake.style.animationDelay = `${Math.random() * 5}s`;
+      snowflakesContainer.appendChild(snowflake);
+    }
+
+    function hideAllAvatars() {
+      const allAvatarContainers = document.querySelectorAll('.avatar-container');
+      const allBios = document.querySelectorAll('.bio');
+      allAvatarContainers.forEach(container => container.style.opacity = 0);
+      allBios.forEach(bio => bio.classList.remove('show'));
+    }
+
+    function showAvatarAndBio(containerId, bioId) {
+      hideAllAvatars();
+      const avatarContainer = document.getElementById(containerId);
+      const bio = document.getElementById(bioId);
+      avatarContainer.style.display = 'block';
+      setTimeout(() => {
+        avatarContainer.style.opacity = 1;
+        bio.classList.add('show');
+      }, 10);
+    }
+
+    document.getElementById('exythButton').addEventListener('click', function() {
+      showAvatarAndBio('avatarContainer1', 'bio1');
+    });
+
+    document.getElementById('convertButton').addEventListener('click', function() {
+      showAvatarAndBio('avatarContainer2', 'bio2');
+    });
+
+    document.getElementById('disposeButton').addEventListener('click', function() {
+      showAvatarAndBio('avatarContainer3', 'bio3');
+    });
+
+    document.getElementById('pastureButton').addEventListener('click', function() {
+      showAvatarAndBio('avatarContainer4', 'bio4');
+    });
+
+    // New proxy button event
+    document.getElementById('proxyButton').addEventListener('click', function() {
+      showAvatarAndBio('avatarContainer5', 'bio5');
+    });
+  </script>
+
+</body>
+</html>
