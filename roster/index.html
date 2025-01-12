@@ -157,6 +157,12 @@
   <audio id="backgroundAudio" preload="auto" loop>
     <source src="assets/audio.mp3" type="audio/mp3">
   </audio>
+  
+  <div class="buttons-container">
+    <button id="playAudioButton">Play Music</button>
+    <!-- Other existing buttons -->
+  </div>
+  
 
   <div class="background">
     <div class="snowflakes" id="snowflakes"></div>
@@ -271,11 +277,17 @@
     <p>enjoy :)</p>
   </div>
 
-  <script>
-    const audio = document.getElementById('backgroundAudio');
-    window.onload = function() {
-      audio.play();
-    };
+    <script>
+  const audio = document.getElementById('backgroundAudio');
+  const playButton = document.getElementById('playAudioButton');
+
+  playButton.addEventListener('click', () => {
+    audio.play();
+  });
+
+  // Snowflake generation and avatar handling scripts remain unchanged
+
+
 
     const snowflakesContainer = document.getElementById('snowflakes');
     const numSnowflakes = 50;
@@ -318,4 +330,3 @@
   </script>
 </body>
 </html>
-
