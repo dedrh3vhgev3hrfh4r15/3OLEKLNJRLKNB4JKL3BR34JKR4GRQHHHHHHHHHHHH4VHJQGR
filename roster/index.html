@@ -153,13 +153,6 @@
   </style>
 </head>
 <body>
-
-  <audio id="backgroundAudio" preload="auto" loop>
-    <source src="assets/audio.mp3" type="audio/mp3">
-  </audio>
-  </div>
-  
-
   <div class="background">
     <div class="snowflakes" id="snowflakes"></div>
   </div>
@@ -273,18 +266,31 @@
     <p>enjoy :)</p>
   </div>
 
-    <script>
-  const audio = document.getElementById('backgroundAudio');
-  const playButton = document.getElementById('playAudioButton');
-
-  playButton.addEventListener('click', () => {
-    audio.play();
-  });
-
-  // Snowflake generation and avatar handling scripts remain unchanged
-
-
-
+  <audio id="backgroundAudio" preload="auto" loop>
+    <source src="assets/audio.mp3" type="audio/mp3">
+  </audio>
+  
+  <script>
+    const audio = document.getElementById('backgroundAudio');
+    
+    // Function to play audio
+    function startAudio() {
+      audio.play().then(() => {
+        console.log("Audio started successfully.");
+      }).catch(error => {
+        console.error("Audio playback failed:", error);
+      });
+  
+      // Remove the event listener after the audio starts
+      document.removeEventListener('click', startAudio);
+      document.removeEventListener('keydown', startAudio);
+    }
+  
+    // Listen for user interaction to start audio
+    document.addEventListener('click', startAudio);
+    document.addEventListener('keydown', startAudio);
+  
+  
     const snowflakesContainer = document.getElementById('snowflakes');
     const numSnowflakes = 50;
 
