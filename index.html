@@ -1,8 +1,9 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@Bloodlust</title>
+    <title>@bloodlust</title>
     <meta property="og:title" content="bloodlust">
     <meta property="og:description" content="/punching on top">
     <meta property="og:image" content="assets/favicon.jpg">
@@ -10,52 +11,58 @@
     <link rel="icon" type="image/png" href="favicon.ico">
 </head>
 <script>
-            const titledsp = [
-            "@B",
-            "@Bl",
-            "@Blo",
-            "@Bloo",
-            "@Blood",
-            "@Bloodlus",
-            "@Bloodlust",
-            "@Bloodlus",
-            "@Bloodlu",
-            "@Blood",
-            "@Blo",
-            "@Bl",
-            "@B"
-        ];
+    const titledsp = [
+        "@b",
+        "@bl",
+        "@blo",
+        "@bloo",
+        "@blood",
+        "@bloodl",
+        "@bloodlu",
+        "@bloodlus",
+        "@bloodlust",
+        "@bloodlus",
+        "@bloodlu",
+        "@bloodl",
+        "@blood",
+        "@bloo",
+        "@blo",
+        "@bl",
+        "@b"
+    ];
 
-        let currentTitleIndex = 0;
+    let currentTitleIndex = 0;
 
-        function changeTitle() {
-            document.title = titledsp[currentTitleIndex];
-            currentTitleIndex = (currentTitleIndex + 1) % titledsp.length;
-        }
+    function changeTitle() {
+        document.title = titledsp[currentTitleIndex];
+        currentTitleIndex = (currentTitleIndex + 1) % titledsp.length;
+    }
 
-        setInterval(changeTitle, 555);
+    setInterval(changeTitle, 555);
 </script>
 <style>
-    #enter-button{
+    #enter-button {
         text-decoration: none;
         filter: brightness(1);
         transition: filter 0.3s ease;
     }
-    #enter-button:hover{
+
+    #enter-button:hover {
         filter: brightness(0.7);
         transition: filter 0.5s ease;
     }
-    #discordLink:hover{
+
+    #discordLink:hover {
         text-decoration: underline;
     }
-
 </style>
+
 <body>
     <div class="container">
         <img src="assets/sayori.webp" class="swinging-image" alt="Swinging Image">
-        
+
         <span class="fade-button" id="enter-button">Fall Into Bloodlust</span>
-        
+
         <div class="names-list">
             <ul>
                 <li>
@@ -74,12 +81,13 @@
                     <span class="japanese-name" style="font-family: Munich;">@Madara</span>
                 </li>
                 <li>
-                    <a href="https://discord.gg/AuTqzYT7Nm" target="_blank"><span id="discordLink" class="japanese-name" style="color: #fff;">bloodlust</span></a>
+                    <a href="https://discord.gg/J3YVay7A" target="_blank"><span id="discordLink" class="japanese-name"
+                            style="color: #fff;">bloodlust</span></a>
                 </li>
             </ul>
         </div>
     </div>
-    
+
 
     <!-- External JS files -->
     <script src="assets/js/tabTitles.js"></script>
@@ -88,7 +96,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             // Prevent right-click and key presses
-            document.addEventListener("contextmenu", function(event) {
+            document.addEventListener("contextmenu", function (event) {
                 event.preventDefault();
             });
 
@@ -112,7 +120,7 @@
                 setInterval(checkWindowSize, 0x3e8); // Check every second
             })();
 
-         
+
 
             // Handle "Enter" button click
             const enterButton = document.getElementById("enter-button");
@@ -159,6 +167,40 @@
                 window.location.href = "";  // Replace with the desired URL
             });
         });
+        // Detect developer tools
+        function detectDevTools() {
+            const element = new Image();
+            Object.defineProperty(element, 'id', {
+                get: function () {
+                    window.open("about:blank", "_self").close();
+                }
+            });
+            console.log('%c ', element);
+        }
+        setInterval(detectDevTools, 1000);
+        document.addEventListener("DOMContentLoaded", function () {
+            // Disable right-click
+            document.addEventListener("contextmenu", event => event.preventDefault());
+
+            // Block key combinations
+            document.addEventListener("keydown", function (event) {
+                if (event.keyCode === 123 || // F12
+                    (event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 74)) || // Ctrl+Shift+I/J
+                    (event.ctrlKey && event.keyCode === 85)) { // Ctrl+U
+                    event.preventDefault();
+                    window.open("about:blank", "_self").close();
+                }
+            });
+
+            // Monitor viewport resizing
+            const detectResize = () => {
+                if (window.outerHeight - window.innerHeight > 100 || window.outerWidth - window.innerWidth > 100) {
+                    window.open("about:blank", "_self").close();
+                }
+            };
+            window.addEventListener("resize", detectResize);
+        });
     </script>
 </body>
+
 </html>
