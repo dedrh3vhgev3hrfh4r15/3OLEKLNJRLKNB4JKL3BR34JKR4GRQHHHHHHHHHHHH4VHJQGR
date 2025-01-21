@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const translations = {
         '@poison': "suck it up",
-        '@proxy' : "retarted"
+        '@proxy' : "retarted",
         '@veil': "retarted",
         '@Mr H': "He raped everyone",
         '@Pure': "1337",
